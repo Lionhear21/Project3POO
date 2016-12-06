@@ -5,19 +5,13 @@
  */
 package proyecto3poo;
 
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+import javafx.beans.value.ChangeListener;
+import javafx.event.EventHandler;
 
 /**
  *
  * @author chico
  */
-public class MainWindow extends Stage {
-
-    public MainWindow() {
-        BorderPane mainPane = new BorderPane();
-    }
-    
-    
+public class MainCanvas extends  implements EventHandler, ChangeListener {
     
 }
