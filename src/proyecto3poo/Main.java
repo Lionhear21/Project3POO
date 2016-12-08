@@ -23,8 +23,8 @@ public class Main extends Application {
     
     @Override
     public void start( Stage stage ) throws Exception {
-        MainStage mainWindow = new MainStage();
-        stage.show();
+        MainStage mainStage = new MainStage();
+        mainStage.show();
         
     }
     
