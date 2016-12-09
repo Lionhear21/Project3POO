@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author chico
+ * @author elio
  */
 public class Main extends Application {
 
@@ -22,10 +22,8 @@ public class Main extends Application {
     }
     
     @Override
-    public void start( Stage stage ) throws Exception {
-        MainStage mainStage = new MainStage();
-        mainStage.show();
-        
+    public void start( Stage stage ) throws Exception {//Muestra la Stage principal
+        MainStage mainStage = new MainStage(); //Se crea una instancia de la clase "MainStage" 
+        mainStage.show(); //Se muestra la instancia creada
     }
-    
 }

@@ -9,13 +9,13 @@ package proyecto3poo;
  *
  * @author chico
  */
-public class Board {
+public class Dimension {
     int width;
     int heigth;
     
-    public Board(int width, int heigth) {
+    public Dimension(int width, int height) {
         this.width = width;
-        this.heigth = heigth;
+        this.heigth = height;
     }
 
     public int getWidth() {
@@ -26,11 +26,11 @@ public class Board {
         this.width = width;
     }
 
-    public int getHeigth() {
+    public int getHeight() {
         return heigth;
     }
 
-    public void setHeigth(int heigth) {
+    public void setHeight(int heigth) {
         this.heigth = heigth;
     }
     

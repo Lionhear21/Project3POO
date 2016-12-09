@@ -11,12 +11,12 @@ package proyecto3poo;
  */
 public enum Tipo {
     
-    AZUL(""),
-    VERDE(""),
-    GRIS(""),
-    PURPURA(""),
-    ROJO(""),
-    AMARILLO("");
+    AZUL("Blue_Candy.png"),
+    VERDE("Green_Candy.png"),
+    NARANJO("Orange_Candy.png"),
+    PURPURA("Purple_Candy.png"),
+    ROJO("Red_Candy.png"),
+    AMARILLO("Yellow_Candy.png");
     
     private final String filename;
     
