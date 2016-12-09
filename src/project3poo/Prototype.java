@@ -37,7 +37,7 @@ public class Prototype {
         int y = verticalBoxes*ALTO_CANDY;
         
         for (int i = 0; i < verticalBoxes; i++) {
-            for(int j = 0; j < horizontalBoxes; j++){
+            for(int j = 0; j < horizontalBoxes; j++) {
                 Random random = new Random(); // Se instancia un un objeto Random
                 int randomInt = random.nextInt(6); // Se crea un avariable int con una coeficiente aleatorio
                 Tipo tipo = Tipo.AMARILLO; //Se instancia una clase tipo predefinida
@@ -49,7 +49,7 @@ public class Prototype {
                     case 4: tipo = Tipo.ROJO; break; // Se cambia el tipo de dulce
                     case 5: tipo = Tipo.VERDE; break; // Se cambia el tipo de dulce
                 }
-                
+                Candy[][] tablero = new Candy[6][6];  
                 //Se crea el nuevo dulce y se  aloja en un ArrayList
                 Candy candy = new Candy(x + j*ANCHO_CANDY, i*ALTO_CANDY, ANCHO_CANDY, ALTO_CANDY, tipo);
                 this.candies.add(candy);
@@ -95,5 +95,25 @@ public class Prototype {
     
     public Iterator<Candy> iterator(){
         return candies.iterator();
+    }
+    
+    public void checkeo(Candy[][] tablero, int h, int v)
+    {
+        for (int i = 0; i < v; i++) {
+            for(int j = 0; j < h; j++){
+                if(tablero[i][j].getTipo().equals((tablero[i+1][j].getTipo())) && (tablero[i][j].getTipo().equals((tablero[i-1][j].getTipo())))){
+                    tablero[i][j] = null;
+                    tablero[i+1][j] = null;
+                    tablero[i-1][j] = null;
+                }
+            }
+        }
+        for (int i = v; i > 0; i--) {
+            for(int j = h; j > 0; j--){
+                if(tablero[i][j] == null){
+                    tablero[i][j] = tablero[i-1][j];  
+                }
+            }
+        }
     }
 }
