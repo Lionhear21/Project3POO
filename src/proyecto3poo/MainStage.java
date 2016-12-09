@@ -19,7 +19,7 @@ public class MainStage extends Stage {
         BorderPane mainPane = new BorderPane(); //Panel principal
         
         MainCanvas Canvas = new MainCanvas(); //Nuestro lienzo en el cual pintaremos todo
-        mainPane.setCenter(Canvas); //colocamos el lienzo en medio de Panel principal
+        mainPane.setCenter(Canvas); //Colocamos el lienzo en medio de Panel principal
         
         //Copiado de ejemplos profe raskanoid, Clase "FXRaskanoidStage.java"
         //Para que el Canvas tome el tamano del panel contenedor
