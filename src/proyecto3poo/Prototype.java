@@ -41,18 +41,19 @@ public class Prototype {
         
         for (int i = 0; i < verticalBoxes; i++) {
             for(int j = 0; j < horizontalBoxes; j++){
-                Random random = new Random();
-                int randomInt = random.nextInt(6);
-                Tipo tipo = Tipo.AMARILLO;
+                Random random = new Random(); // Se instancia un un objeto Random
+                int randomInt = random.nextInt(6); // Se crea un avariable int con una coeficiente aleatorio
+                Tipo tipo = Tipo.AMARILLO; //Se instancia una clase tipo predefinida
                 switch(randomInt) {
-                    case 0: tipo = Tipo.AMARILLO; break;
-                    case 1: tipo = Tipo.AZUL; break;
-                    case 2: tipo = Tipo.NARANJO; break;
-                    case 3: tipo = Tipo.PURPURA; break;
-                    case 4: tipo = Tipo.ROJO; break;
-                    case 5: tipo = Tipo.VERDE; break;
+                    case 0: tipo = Tipo.AMARILLO; break; // Se cambia el tipo de dulce
+                    case 1: tipo = Tipo.AZUL; break; // Se cambia el tipo de dulce
+                    case 2: tipo = Tipo.NARANJO; break; // Se cambia el tipo de dulce
+                    case 3: tipo = Tipo.PURPURA; break; // Se cambia el tipo de dulce
+                    case 4: tipo = Tipo.ROJO; break; // Se cambia el tipo de dulce
+                    case 5: tipo = Tipo.VERDE; break; // Se cambia el tipo de dulce
                 }
                 
+                //Se crea el nuevo dulce y se  aloja en un ArrayList
                 Candy candy = new Candy(x + j*ANCHO_CANDY, i*ALTO_CANDY, ANCHO_CANDY, ALTO_CANDY, tipo);
                 this.candies.add(candy);
             }
