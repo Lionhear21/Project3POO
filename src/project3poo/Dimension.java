@@ -33,7 +33,4 @@ public class Dimension {
     public void setHeight(int heigth) {
         this.heigth = heigth;
     }
-    
-    
-    
 }

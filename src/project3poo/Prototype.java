@@ -19,18 +19,15 @@ public class Prototype {
     
     private int actualScore; //Puntaje actual del juego
     private Dimension board; //Tamaño del tablero de juego
-    private ArrayList<Level> levels; //ArrayList con todos los niveles de juego
     private ArrayList<Candy> candies; //ArrayList con todos los dulces posibles
-    private ArrayList<Player> players; //ArrayList con todos los jugadores que ham participado
+    private ArrayList<Player> players; //ArrayList con todos los jugadores que han participado
     
     private boolean initiate;
     
     //Constructor
     public Prototype(int width, int heigth) {
         this.board = new Dimension(width,heigth); //Se le da el tamaño total de la ventana al tablero
-        this.levels = new ArrayList<>();
         this.candies = new ArrayList<>();
-        
         
         int horizontalBoxes = 6;
         int verticalBoxes = 6;
@@ -84,12 +81,16 @@ public class Prototype {
         return players.size();
     }
 
+    public boolean addPlayer(Player player) {
+        return players.add(player); 
+    }
+    
     public Player get(int index) {
         return players.get(index);
     }
 
-    public Player remove(int index) {
-        return players.remove(index);
+    public boolean remove(Player player) {
+        return players.remove(player);
     }
     
     public Iterator<Candy> iterator(){

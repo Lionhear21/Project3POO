@@ -7,7 +7,7 @@ package project3poo;
 
 /**
  *
- * @author chico
+ * @author Elio
  */
 public enum Tipo {
     
