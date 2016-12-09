@@ -23,14 +23,16 @@ import javafx.util.Duration;
  * @author Elio
  * Lienzo en el cual trabajaremos las imagenes
  */
-public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
+public class MainCanvas extends Canvas implements EventHandler, ChangeListener 
+{
     
     private Prototype prototype; //Mecanicas de juego
     private final GraphicsContext context; //Buffer del Canvas
 
     //Constructor
-    public MainCanvas() {
-        this.prototype = new Prototype(1366,768); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
+    public MainCanvas() 
+    {
+        this.prototype = new Prototype(1366, 768); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
         this.context = super.getGraphicsContext2D(); //Instanciamos el Buffer del Canvas
         
         //Copiado de ejemplos profe raskanoid, Clase "FXRaskanoidCanvas.java"
@@ -41,28 +43,25 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
         this.widthProperty().addListener(this);
         this.heightProperty().addListener(this);
         
-        /*Timeline timer = new Timeline( new KeyFrame(Duration.millis(5), this));
-        timer.setCycleCount(Animation.INDEFINITE);
-        timer.play();*/
-        
-        
-        
+        //Timeline timer = new Timeline( new KeyFrame(Duration.millis(5), this));
+        //timer.setCycleCount(Animation.INDEFINITE);
+        //timer.play();
     }
     
     @Override
     public void handle( Event event ) {
         if(event.getSource() instanceof KeyFrame) { //Si el juego esta andando?
             //Eventos en los cuales se agregan puntos al puntaje del jugador, "Examinar"
+            this.repaint();
             
         }
         
         //Eventos del Mouse
-        if( event.getEventType() == MouseEvent.MOUSE_PRESSED ) {
+        if(event.getEventType() == MouseEvent.MOUSE_PRESSED) {
             MouseEvent me = (MouseEvent)event;
             //Agregar metodos que hagan que se mueva un dulce y se repinte el canvas
             
         }
-        
     }
 
     @Override

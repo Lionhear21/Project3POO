@@ -20,7 +20,7 @@ public class Loader {
         if(image != null){
             return image;
         }
-        image = new Image(Painter.class.getResourceAsStream("/proyecto3poo/Candies_Images" + filename));
+        image = new Image(Painter.class.getResourceAsStream("/project3poo/Candies_Images/" + filename));
         Loader.IMAGENES.put(filename,image);
         return image;
     }
