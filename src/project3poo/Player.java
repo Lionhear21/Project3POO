@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto3poo;
+package project3poo;
 
 import java.util.Date;
 
