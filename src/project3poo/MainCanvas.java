@@ -43,9 +43,9 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener
         this.widthProperty().addListener(this);
         this.heightProperty().addListener(this);
         
-        Timeline timer = new Timeline( new KeyFrame(Duration.millis(5), this));
-        timer.setCycleCount(Animation.INDEFINITE);
-        timer.play();
+        //Timeline timer = new Timeline( new KeyFrame(Duration.millis(5), this));
+        //timer.setCycleCount(Animation.INDEFINITE);
+        //timer.play();
     }
     
     @Override
