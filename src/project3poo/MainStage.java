@@ -15,9 +15,15 @@ import javafx.stage.Stage;
  *
  * @author Elio
  */
-public class MainStage extends Stage {
+public class MainStage extends Stage 
+{
+    private MenuPrincipal mainWindow;
 
-    public MainStage() {
+    public MainStage(MenuPrincipal mainWindow) {
+        
+        this.mainWindow = mainWindow;
+        
+        super.setTitle("Candy Crush 100% real no fake 2016 un link mega");
         BorderPane mainPane = new BorderPane(); //Panel principal
         
         HBox hud = new HBox();
@@ -36,6 +42,5 @@ public class MainStage extends Stage {
         
         Scene scene = new Scene(mainPane, 800, 600); //Creamos la escena a mostrar,(colocamos el panel principal, ancho en pixeles, largo en pixeles)
         super.setScene(scene); //Mostramos la escena con el panel "principal creado"
-        super.setTitle("Candy Crush 100% real no fake 2016 un link mega");
     }
 }

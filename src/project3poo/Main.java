@@ -19,7 +19,7 @@ public class Main extends Application {
     
     @Override
     public void start( Stage stage ) throws Exception {//Muestra la Stage principal
-        MainStage mainStage = new MainStage(); //Se crea una instancia de la clase "MainStage" 
-        mainStage.show(); //Se muestra la instancia creada
+        MenuPrincipal menuPrincipal = new MenuPrincipal(); //Se crea una instancia de la clase "MainStage" 
+        menuPrincipal.show(); //Se muestra la instancia creada
     }
 }
