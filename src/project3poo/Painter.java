@@ -13,13 +13,21 @@ import javafx.scene.canvas.GraphicsContext;
  * @author Elio
  */
 public class Painter {
-    static public void paint( Prototype game, GraphicsContext context, Dimension board, Dimension ventana ) { //Metodo principal, se le entrega el juego, el buffer, la dimension del tablero de juego, dimension del la ventana
-        //Pinta a todos los dulces del nivel
-        Iterator<Candy> candies = game.iterator();
-        while( candies.hasNext() ){
-            Candy candy = candies.next();
-            Painter.dibujar( candy, context, board, ventana );
+    static public void paint( Prototype prototipo, GraphicsContext context, Dimension board, Dimension ventana) { //Metodo principal, se le entrega el juego, el buffer, la dimension del tablero de juego, dimension del la ventana
+       
+        
+        Nivel nivel = prototipo.getNivel(0);
+        Candy[][] tablero = nivel.getTablero();
+        if( nivel != null )
+        {
+            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
+                for(int j = 0; j < nivel.getVerticalBoxes(); j++){
+                    Painter.dibujar(tablero[i][j], context, board, ventana);
+                }
+            }
         }
+        
+      
         
     }
     
