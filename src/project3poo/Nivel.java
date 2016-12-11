@@ -67,4 +67,15 @@ public class Nivel
     public void setTablero(Candy[][] tablero) {
         this.tablero = tablero;
     }
+    
+    public Candy getCandy(double x , double y){
+        for(int i = 0; i < this.verticalBoxes; i++){
+            for(int j = 0; j < this.horizontalBoxes;j++){
+                if(x < this.tablero[i][j].getX() && y < this.tablero[i][j].getY()){
+                    return this.tablero[i][j];
+                }
+            }
+        }
+        return null;
+    }
 }

@@ -14,25 +14,25 @@ import java.util.Iterator;
  * @author chico
  */
 public class Prototype {
-    static private final int ANCHO_CANDY = 64;
-    static private final int ALTO_CANDY = 64;
+    static private final int ACTUAL_SCORE = 0; //Puntaje actual del juego
     
-    //private int actualScore; //Puntaje actual del juego
     private Dimension board; //Tamaño del tablero de juego
     private HashMap<Integer,Nivel> levels; //ArrayList con todos los dulces posibles
     private ArrayList<Player> players; //ArrayList con todos los jugadores que han participado
-    
-    private boolean initiate;
+    private boolean initiate; // Estado del juego //true = Iniciado || false = No Iniciado
     
     //Constructor
     public Prototype(int width, int heigth) {
         this.board = new Dimension(width,heigth); //Se le da el tamaño total de la ventana al tablero
         this.levels = new HashMap();
+        this.players = new ArrayList<>();
         
         for(int i = 0; i < 10; i++){
             Nivel nivel = new Nivel(6,6);
             this.levels.put(i, nivel);
         }
+        
+        this.initiate = false;
     }
     
     public Nivel getNivel(Integer indice)
@@ -80,8 +80,40 @@ public class Prototype {
         return levels.get(key);
     }
     
-    public void checkeo(Candy[][] tablero, int h, int v)
+    public void changePosition(Nivel nivel, Candy candy1, Candy candy2){
+        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                Candy[][] tablero = nivel.getTablero();
+                if(tablero[i][j] == candy1){
+                    if(tablero[i+1][j] == candy2){
+                        tablero[i][j] = candy2;
+                        tablero[i+1][j] = candy1;
+                        
+                    }
+                    if(tablero[i-1][j] == candy2){
+                        tablero[i][j] = candy2;
+                        tablero[i-1][j] = candy1;
+                        
+                    }
+                    if(tablero[i][j+1] == candy2){
+                        tablero[i][j] = candy2;
+                        tablero[i][j+1] = candy1;
+                        
+                    }
+                    if(tablero[i][j-1] == candy2){
+                        tablero[i][j] = candy2;
+                        tablero[i][j-1] = candy1;
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    public void checkeo(Nivel nivel, int h, int v)
     {
+        Candy[][] tablero = nivel.getTablero();
+        //Checkeo vertical
         for (int i = 0; i < v; i++) {
             for(int j = 0; j < h; j++){
                 if(tablero[i][j].getTipo().equals((tablero[i+1][j].getTipo())) && (tablero[i][j].getTipo().equals((tablero[i-1][j].getTipo())))){
@@ -95,6 +127,24 @@ public class Prototype {
             for(int j = h; j > 0; j--){
                 if(tablero[i][j] == null){
                     tablero[i][j] = tablero[i-1][j];  
+                }
+            }
+        }
+        
+        //Checkeo horizontal
+        for (int i = 0; i < v; i++) {
+            for(int j = 0; j < h; j++){
+                if(tablero[i][j].getTipo().equals((tablero[i][j+1].getTipo())) && (tablero[i][j].getTipo().equals((tablero[i][j-1].getTipo())))){
+                    tablero[i][j] = null;
+                    tablero[i][j+1] = null;
+                    tablero[i][j+1] = null;
+                }
+            }
+        }
+        for (int i = v; i > 0; i--) {
+            for(int j = h; j > 0; j--){
+                if(tablero[i][j] == null){
+                    tablero[i][j] = tablero[i][j-1];  
                 }
             }
         }

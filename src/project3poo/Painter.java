@@ -5,30 +5,26 @@
  */
 package project3poo;
 
-import java.util.Iterator;
+import javafx.event.Event;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
  *
  * @author Elio
  */
-public class Painter {
+public class Painter{
     static public void paint( Prototype prototipo, GraphicsContext context, Dimension board, Dimension ventana) { //Metodo principal, se le entrega el juego, el buffer, la dimension del tablero de juego, dimension del la ventana
-       
-        
+    
         Nivel nivel = prototipo.getNivel(0);
         Candy[][] tablero = nivel.getTablero();
-        if( nivel != null )
-        {
+        if( nivel != null ){
             for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
                 for(int j = 0; j < nivel.getVerticalBoxes(); j++){
+                    
                     Painter.dibujar(tablero[i][j], context, board, ventana);
                 }
             }
         }
-        
-      
-        
     }
     
     //Metodo que toma la imagen cargada y la pinta en el canvas
@@ -60,5 +56,5 @@ public class Painter {
         double diagonalVentana = Math.sqrt( ventana.getWidth()*ventana.getWidth() + ventana.getHeight()*ventana.getHeight() );
         return (int)(magnitud*diagonalVentana/diagonalBoard);
     }
-    
+
 }

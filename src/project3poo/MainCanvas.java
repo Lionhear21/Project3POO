@@ -50,16 +50,22 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener
     
     @Override
     public void handle( Event event ) {
-        if(event.getSource() instanceof KeyFrame) { //Si el juego esta andando?
+        /*if(event.getSource() instanceof KeyFrame) { //Si el juego esta andando?
             //Eventos en los cuales se agregan puntos al puntaje del jugador, "Examinar"
             this.repaint();
             
-        }
+        }*/
         
         //Eventos del Mouse
         if(event.getEventType() == MouseEvent.MOUSE_PRESSED) {
             MouseEvent me = (MouseEvent)event;
+            double x1 = me.getX();
+            double y1 = me.getY();
+            System.out.println("LOL:" + x1 + y1);
+            Candy candy1 = prototype.getNivel(0).getCandy(x1, y1);
             //Agregar metodos que hagan que se mueva un dulce y se repinte el canvas
+            this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
+            this.repaint();
             
         }
     }
