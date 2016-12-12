@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 public class MenuPrincipal extends Stage implements EventHandler
 {
     final private MainStage gameWindow = new MainStage(this);
+    final private VentanaInstrucciones instruccionesWindow = new VentanaInstrucciones(this);
+    final private VentanaPuntajes puntajesWindow = new VentanaPuntajes(this);
     final private VentanaAcercaDe acercaDeWindow = new VentanaAcercaDe(this);
     private Button jugar;
     private Button instrucciones;
@@ -80,11 +82,19 @@ public class MenuPrincipal extends Stage implements EventHandler
         }
         
         if( event.getSource() == this.instrucciones ) {
-            
+            if(!this.instruccionesWindow.isShowing()) {
+                this.close();
+                this.instruccionesWindow.setResizable(false);
+                this.instruccionesWindow.show();
+            }
         }
         
         if( event.getSource() == this.ranking ) {
-            
+            if(!this.puntajesWindow.isShowing()) {
+                this.close();
+                this.puntajesWindow.setResizable(false);
+                this.puntajesWindow.show();
+            }
         }
         
         if( event.getSource() == this.acercaDe ) {

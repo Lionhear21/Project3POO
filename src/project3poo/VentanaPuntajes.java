@@ -12,11 +12,11 @@ import javafx.stage.Stage;
  *
  * @author William
  */
-public class VentanaPuntaje extends Stage
+public class VentanaPuntajes extends Stage
 {
     private MenuPrincipal mainWindow;
     
-    public VentanaPuntaje(MenuPrincipal mainWindow)
+    public VentanaPuntajes(MenuPrincipal mainWindow)
     {
         this.mainWindow = mainWindow;
         
