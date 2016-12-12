@@ -27,8 +27,9 @@ public class MainStage extends Stage
         super.setTitle("Candy Crush 100% real no fake 2016 un link mega");
         BorderPane mainPane = new BorderPane(); //Panel principal
         
-        HBox hud = new HBox();
+        HBox hud = new HBox(20);
         Label labelVidas = new Label("Vidas = 5");
+        labelVidas.setMinHeight(20);
         Label labelPuntaje = new Label("Puntaje = " + score);
         hud.getChildren().addAll(labelVidas, labelPuntaje);
         

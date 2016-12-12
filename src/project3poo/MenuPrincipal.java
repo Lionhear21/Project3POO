@@ -41,7 +41,7 @@ public class MenuPrincipal extends Stage implements EventHandler
         //Label fondo = new Label("", new ImageView(image));
         //root.getChildren().add(fondo);
                 
-        VBox centralPane = new VBox();
+        VBox centralPane = new VBox(20);
         this.jugar = new Button("Jugar");
         this.jugar.setPrefWidth(500);
         this.instrucciones = new Button("Instrucciones");
