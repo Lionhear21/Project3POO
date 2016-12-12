@@ -84,13 +84,12 @@ public class Prototype {
         Candy[][] tablero = nivel.getTablero();
         for(int i = 0; i < nivel.getVerticalBoxes(); i++){
             for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
-                if( tablero[i][j] == swaps[0] ){
-                    tablero[i][j].setX(swaps[1].getX());
-                    tablero[i][j].setY(swaps[1].getY());
+                if( tablero[i][j] == swaps[0] && tablero[i][j].getX() == swaps[0].getX() ){
+                    tablero[i][j].setTipo(swaps[1].getTipo());
+                    
                 }
                 if( tablero[i][j] == swaps[1] ){
-                    tablero[i][j].setX(swaps[0].getX());
-                    tablero[i][j].setY(swaps[0].getY());
+                    tablero[i][j].setTipo(swaps[0].getTipo());
                 }
                 
             }

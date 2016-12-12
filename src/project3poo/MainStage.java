@@ -17,6 +17,7 @@ import javafx.stage.Stage;
  */
 public class MainStage extends Stage 
 {
+    private int score = 0;
     private MenuPrincipal mainWindow;
 
     public MainStage(MenuPrincipal mainWindow) {
@@ -28,7 +29,7 @@ public class MainStage extends Stage
         
         HBox hud = new HBox();
         Label labelVidas = new Label("Vidas = 5");
-        Label labelPuntaje = new Label("Puntaje = 1000000");
+        Label labelPuntaje = new Label("Puntaje = " + score);
         hud.getChildren().addAll(labelVidas, labelPuntaje);
         
         MainCanvas Canvas = new MainCanvas(); //Nuestro lienzo en el cual pintaremos todo

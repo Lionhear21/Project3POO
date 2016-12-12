@@ -73,10 +73,15 @@ public class MenuPrincipal extends Stage implements EventHandler
         if( event.getSource() == this.jugar )
         {
             if(!this.gameWindow.isShowing()) {
+                this.close();
                 this.gameWindow.setResizable(false);
                 this.gameWindow.show();
 
             }
+        }
+        if( event.getSource() == this.salir )
+        {
+            this.close();
         }
     }
 }

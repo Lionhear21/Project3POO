@@ -71,15 +71,27 @@ public class Nivel
     }
     
     public Candy getCandy(double x , double y){
+        int rx = (int)Math.round(x);
+        int ry = (int)Math.round(y);
         for(int i = 0; i < this.verticalBoxes; i++){
             for(int j = 0; j < this.horizontalBoxes;j++){
-                if( x > j*this.tablero[i][j].getX() && y > i*this.tablero[i][j].getY() ){
-                    if( x < this.tablero[i][j+1].getX() && y < this.tablero[i+1][j].getY()){
-                        System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
-                        System.out.println(this.tablero[i+1][j].getX() + "\n" + this.tablero[i][j+1].getY());
+                if( this.tablero[i][j].getX() - rx > 0 ){
+                    if( this.tablero[i][j].getY() - ry > 0){
+                        System.out.println(this.tablero[i][j].getTipo());
                         return this.tablero[i][j];
+                    
                     }
                 }
+                
+                
+                
+                /*if( rx > this.tablero[i][j].getX() && ry > this.tablero[i][j].getY() ){
+                    if( rx < this.tablero[i][j+1].getX() && ry < this.tablero[i][j].getY()){
+                        System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
+                        System.out.println(rx + "" + ry);
+                        return this.tablero[i][j];
+                    }
+                }*/
             }
         }
         return null;
