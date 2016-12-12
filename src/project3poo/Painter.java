@@ -20,7 +20,6 @@ public class Painter{
         if( nivel != null ){
             for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
                 for(int j = 0; j < nivel.getVerticalBoxes(); j++){
-                    
                     Painter.dibujar(tablero[i][j], context, board, ventana);
                 }
             }

@@ -7,6 +7,7 @@ package project3poo;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -32,22 +33,24 @@ public class MenuPrincipal extends Stage implements EventHandler
         super.setTitle("MenuJuego");
         StackPane root = new StackPane(); //Menu principal del juego
 
-        BorderPane menuPrincipal = new BorderPane();
-        root.getChildren().add(menuPrincipal);
+        //BorderPane menuPrincipal = new BorderPane();
         
         VBox centralPane = new VBox();
         this.jugar = new Button("Jugar");
-        this.jugar.setPrefWidth(100);
+        this.jugar.setPrefWidth(500);
         this.instrucciones = new Button("Instrucciones");
-        this.instrucciones.setPrefWidth(100);
+        this.instrucciones.setPrefWidth(500);
         this.ranking = new Button("Ranking");
-        this.ranking.setPrefWidth(100);
+        this.ranking.setPrefWidth(500);
         this.acercaDe = new Button("Acerca de");
-        this.acercaDe.setPrefWidth(100);
+        this.acercaDe.setPrefWidth(500);
         this.salir = new Button("Salir");
-        this.salir.setPrefWidth(100);
+        this.salir.setPrefWidth(500);
         centralPane.getChildren().addAll(this.jugar, this.instrucciones, this.ranking, this.acercaDe, this.salir);
-        menuPrincipal.setCenter(centralPane);
+        centralPane.setAlignment(Pos.CENTER);
+        root.getChildren().add(centralPane);
+
+        //menuPrincipal.setCenter(centralPane);
         
         Scene scene = new Scene(root, 800, 600); 
         super.setScene(scene); 

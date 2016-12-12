@@ -25,9 +25,12 @@ import javafx.util.Duration;
  * @author Elio Lienzo en el cual trabajaremos las imagenes
  */
 public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
+    
 
     private Prototype prototype; //Mecanicas de juego
     private final GraphicsContext context; //Buffer del Canvas
+    private int count;
+    private Candy[] swaps;
 
     //Constructor
     public MainCanvas() {
@@ -36,7 +39,11 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
 
         //Copiado de ejemplos profe raskanoid, Clase "FXRaskanoidCanvas.java"
         //Eventos del mouse
+        this.count = 0;
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, this); // Click del mouse
+        this.swaps = new Candy[2]; //Array para guardar los que van a ser cambiados
+        
+        
 
         //agrego eventos de cambios del tamano 
         this.widthProperty().addListener(this);
@@ -49,33 +56,22 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
 
     @Override
     public void handle(Event event) {
-        /*if(event.getSource() instanceof KeyFrame) { //Si el juego esta andando?
-            //Eventos en los cuales se agregan puntos al puntaje del jugador, "Examinar"
-            this.repaint();
-            
-        }*/
-
-        //Eventos del Mouse
-        Candy[] swaps = new Candy[2];
-        int i = 0;
-        while(i < 2) {
-            if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
-                MouseEvent me = (MouseEvent) event;
-                double x = me.getX(); //obtengo el x del mouse
-                double y = me.getY(); //obtengo el y del mouse
-                System.out.println("X: " + x + "\nY: " + y);
-                Candy candy = prototype.getNivel(0).getCandy(x, y); //obtengo el objeto en clickeado
-                swaps[i] = candy; //Se guarda el objeto Candy
-                if (swaps[1] != null) {
-                    this.prototype.changePosition(this.prototype.getNivel(0), swaps);
-                    this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
-                    this.repaint(); //Repinta el canvas
-                    swaps[0] = null; //Vacia la posicion 0 
-                    swaps[1] = null; //Vacia la posicion 1
-                }
+        if (event.getEventType() == MouseEvent.MOUSE_PRESSED){
+            MouseEvent me = (MouseEvent) event;
+            double x = me.getX(); //obtengo el x del mouse
+            double y = me.getY(); //obtengo el y del mouse
+            System.out.println("X: " + x + "\nY: " + y);
+            Candy candy = prototype.getNivel(0).getCandy(x, y); //obtengo el objeto en clickeado
+            this.swaps[count] = candy;
+            this.count++;
+            if(this.count == 2){
+                this.prototype.changePosition(this.prototype.getNivel(0), swaps);
+                this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
+                this.repaint(); //Repinta el canvas
+                this.count = 0;
             }
-            i++;
         }
+        
     }
 
     @Override

@@ -28,7 +28,7 @@ public class Prototype {
         this.players = new ArrayList<>();
         
         for(int i = 0; i < 10; i++){
-            Nivel nivel = new Nivel(6,6);
+            Nivel nivel = new Nivel(width,heigth,6,6);
             this.levels.put(i, nivel);
         }
         
