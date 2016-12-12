@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 public class MenuPrincipal extends Stage implements EventHandler
 {
     final private MainStage gameWindow = new MainStage(this);
+    final private VentanaAcercaDe acercaDeWindow = new VentanaAcercaDe(this);
     private Button jugar;
     private Button instrucciones;
     private Button ranking;
@@ -70,17 +71,31 @@ public class MenuPrincipal extends Stage implements EventHandler
     @Override
     public void handle(Event event)
     {
-        if( event.getSource() == this.jugar )
-        {
+        if( event.getSource() == this.jugar ) {
             if(!this.gameWindow.isShowing()) {
                 this.close();
                 this.gameWindow.setResizable(false);
                 this.gameWindow.show();
-
             }
         }
-        if( event.getSource() == this.salir )
-        {
+        
+        if( event.getSource() == this.instrucciones ) {
+            
+        }
+        
+        if( event.getSource() == this.ranking ) {
+            
+        }
+        
+        if( event.getSource() == this.acercaDe ) {
+            if(!this.acercaDeWindow.isShowing()) {
+                this.close();
+                this.acercaDeWindow.setResizable(false);
+                this.acercaDeWindow.show();
+            }
+        }
+        
+        if( event.getSource() == this.salir ) {
             this.close();
         }
     }

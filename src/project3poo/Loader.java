@@ -16,7 +16,7 @@ public class Loader {
     static private final HashMap<String, Image> IMAGENES = new HashMap<>();
     
     static public Image getImage(String filename) {
-        Image image = Loader.IMAGENES.get(filename);
+        Image image = IMAGENES.get(filename);
         if(image != null){
             return image;
         }
