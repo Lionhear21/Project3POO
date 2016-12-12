@@ -5,9 +5,11 @@
  */
 package project3poo;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -21,14 +23,19 @@ public class VentanaAcercaDe extends Stage
     public VentanaAcercaDe(MenuPrincipal mainWindow)
     {
         this.mainWindow = mainWindow;
-        
+        this.initModality(Modality.APPLICATION_MODAL);
         super.setTitle("Acerca de ...");
         
         StackPane root = new StackPane();
         
-        Label fondo = new Label("", new ImageView(Loader.getImage("fondo.jpg")));
+        Label fondo = new Label("hola", new ImageView(Loader.getImage("fondo.jpg")));
         fondo.setMinWidth(400);
         fondo.setMinHeight(400);
+        
         root.getChildren().add(fondo);
+        
+        
+        Scene scene = new Scene(root, 640, 600);
+        this.setScene(scene);
     }
 }

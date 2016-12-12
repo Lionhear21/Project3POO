@@ -45,22 +45,22 @@ public class MenuPrincipal extends Stage implements EventHandler
                 
         VBox centralPane = new VBox(20);
         this.jugar = new Button("Jugar");
-        this.jugar.setPrefWidth(500);
+        this.jugar.setPrefWidth(300);
         this.instrucciones = new Button("Instrucciones");
-        this.instrucciones.setPrefWidth(500);
+        this.instrucciones.setPrefWidth(300);
         this.ranking = new Button("Ranking");
-        this.ranking.setPrefWidth(500);
+        this.ranking.setPrefWidth(300);
         this.acercaDe = new Button("Acerca de");
-        this.acercaDe.setPrefWidth(500);
+        this.acercaDe.setPrefWidth(300);
         this.salir = new Button("Salir");
-        this.salir.setPrefWidth(500);
+        this.salir.setPrefWidth(300);
         centralPane.getChildren().addAll(this.jugar, this.instrucciones, this.ranking, this.acercaDe, this.salir);
         centralPane.setAlignment(Pos.CENTER);
         root.getChildren().add(centralPane);
 
         //menuPrincipal.setCenter(centralPane);
         
-        Scene scene = new Scene(root, 800, 600); 
+        Scene scene = new Scene(root, 400, 600); 
         super.setScene(scene); 
         
         this.jugar.setOnAction(this);
@@ -76,7 +76,7 @@ public class MenuPrincipal extends Stage implements EventHandler
         if( event.getSource() == this.jugar ) {
             if(!this.gameWindow.isShowing()) {
                 this.close();
-                this.gameWindow.setResizable(false);
+                this.gameWindow.setResizable(true);
                 this.gameWindow.show();
             }
         }
@@ -99,7 +99,6 @@ public class MenuPrincipal extends Stage implements EventHandler
         
         if( event.getSource() == this.acercaDe ) {
             if(!this.acercaDeWindow.isShowing()) {
-                this.close();
                 this.acercaDeWindow.setResizable(false);
                 this.acercaDeWindow.show();
             }

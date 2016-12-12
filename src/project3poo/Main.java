@@ -5,6 +5,7 @@
  */
 package project3poo;
 
+import java.util.Calendar;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,6 +15,17 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Calendar calendar = Calendar.getInstance();
+        System.out.println("Día : " + calendar.get(Calendar.DATE));
+        System.out.println("Mes : " + calendar.get(Calendar.MONTH));
+        System.out.println("Año : " + calendar.get(Calendar.YEAR));
+        System.out.println("Hora : " + calendar.get(Calendar.HOUR));
+        System.out.println("Minuto : " + calendar.get(Calendar.MINUTE));
+        System.out.println("Segundo : " + calendar.get(Calendar.SECOND));
+         
+        
+        
         launch(args);
     }
     
