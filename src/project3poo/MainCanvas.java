@@ -5,6 +5,8 @@
  */
 package project3poo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -20,71 +22,77 @@ import javafx.util.Duration;
 
 /**
  *
- * @author Elio
- * Lienzo en el cual trabajaremos las imagenes
+ * @author Elio Lienzo en el cual trabajaremos las imagenes
  */
-public class MainCanvas extends Canvas implements EventHandler, ChangeListener 
-{
-    
+public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
+
     private Prototype prototype; //Mecanicas de juego
     private final GraphicsContext context; //Buffer del Canvas
 
     //Constructor
-    public MainCanvas() 
-    {
+    public MainCanvas() {
         this.prototype = new Prototype(1366, 768); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
         this.context = super.getGraphicsContext2D(); //Instanciamos el Buffer del Canvas
-        
+
         //Copiado de ejemplos profe raskanoid, Clase "FXRaskanoidCanvas.java"
         //Eventos del mouse
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, this); // Click del mouse
-        
+
         //agrego eventos de cambios del tamano 
         this.widthProperty().addListener(this);
         this.heightProperty().addListener(this);
-        
+
         //Timeline timer = new Timeline( new KeyFrame(Duration.millis(5), this));
         //timer.setCycleCount(Animation.INDEFINITE);
         //timer.play();
     }
-    
+
     @Override
-    public void handle( Event event ) {
+    public void handle(Event event) {
         /*if(event.getSource() instanceof KeyFrame) { //Si el juego esta andando?
             //Eventos en los cuales se agregan puntos al puntaje del jugador, "Examinar"
             this.repaint();
             
         }*/
-        
+
         //Eventos del Mouse
-        if(event.getEventType() == MouseEvent.MOUSE_PRESSED) {
-            MouseEvent me = (MouseEvent)event;
-            double x1 = me.getX();
-            double y1 = me.getY();
-            System.out.println("LOL:" + x1 + y1);
-            Candy candy1 = prototype.getNivel(0).getCandy(x1, y1);
-            //Agregar metodos que hagan que se mueva un dulce y se repinte el canvas
-            this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
-            this.repaint();
-            
+        Candy[] swaps = new Candy[2];
+        int i = 0;
+        while(i < 2) {
+            if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
+                MouseEvent me = (MouseEvent) event;
+                double x = me.getX(); //obtengo el x del mouse
+                double y = me.getY(); //obtengo el y del mouse
+                System.out.println("X: " + x + "\nY: " + y);
+                Candy candy = prototype.getNivel(0).getCandy(x, y); //obtengo el objeto en clickeado
+                swaps[i] = candy; //Se guarda el objeto Candy
+                if (swaps[1] != null) {
+                    this.prototype.changePosition(this.prototype.getNivel(0), swaps);
+                    this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
+                    this.repaint(); //Repinta el canvas
+                    swaps[0] = null; //Vacia la posicion 0 
+                    swaps[1] = null; //Vacia la posicion 1
+                }
+            }
+            i++;
         }
     }
 
     @Override
     public void changed(ObservableValue observable, Object oldValue, Object newValue)//Metodo que indica si algo a cambiado
     {
-       this.repaint();//repinta el canvas si algo a cambiado
+        this.repaint();//repinta el canvas si algo a cambiado
     }
-    
-    private void repaint(){ //Metodo el cual repinta todo el canvas
-        this.context.clearRect(0, 0, (int)this.getWidth(), (int)this.getHeight()); //Borra el canvas actual
-        
-        if(this.prototype != null){ //Si el juego "aun esta corriendo" o "si contiene algun valor" ?
+
+    private void repaint() { //Metodo el cual repinta todo el canvas
+        this.context.clearRect(0, 0, (int) this.getWidth(), (int) this.getHeight()); //Borra el canvas actual
+
+        if (this.prototype != null) { //Si el juego "aun esta corriendo" o "si contiene algun valor" ?
             //El pintador vuelve a pintar el canvas
             Painter.paint(this.prototype, //Con el juego... 
                     this.context, //El buffer...
                     prototype.getBoard(), //El tablero de juego...
-                    new Dimension((int)this.getWidth(),(int)this.getHeight())); //...y el tamaño
+                    new Dimension((int) this.getWidth(), (int) this.getHeight())); //...y el tamaño
         }
     }
 }

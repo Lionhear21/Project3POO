@@ -80,34 +80,23 @@ public class Prototype {
         return levels.get(key);
     }
     
-    public void changePosition(Nivel nivel, Candy candy1, Candy candy2){
+    public void changePosition(Nivel nivel, Candy[] swaps){
+        Candy[][] tablero = nivel.getTablero();
         for(int i = 0; i < nivel.getVerticalBoxes(); i++){
             for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
-                Candy[][] tablero = nivel.getTablero();
-                if(tablero[i][j] == candy1){
-                    if(tablero[i+1][j] == candy2){
-                        tablero[i][j] = candy2;
-                        tablero[i+1][j] = candy1;
-                        
-                    }
-                    if(tablero[i-1][j] == candy2){
-                        tablero[i][j] = candy2;
-                        tablero[i-1][j] = candy1;
-                        
-                    }
-                    if(tablero[i][j+1] == candy2){
-                        tablero[i][j] = candy2;
-                        tablero[i][j+1] = candy1;
-                        
-                    }
-                    if(tablero[i][j-1] == candy2){
-                        tablero[i][j] = candy2;
-                        tablero[i][j-1] = candy1;
-                        
-                    }
+                if( tablero[i][j] == swaps[0] ){
+                    tablero[i][j].setX(swaps[1].getX());
+                    tablero[i][j].setY(swaps[1].getY());
                 }
+                if( tablero[i][j] == swaps[1] ){
+                    tablero[i][j].setX(swaps[0].getX());
+                    tablero[i][j].setY(swaps[0].getY());
+                }
+                
             }
+            
         }
+        
     }
     
     public void checkeo(Nivel nivel, int h, int v)
