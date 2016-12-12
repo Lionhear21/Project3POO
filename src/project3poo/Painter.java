@@ -56,5 +56,4 @@ public class Painter{
         double diagonalVentana = Math.sqrt( ventana.getWidth()*ventana.getWidth() + ventana.getHeight()*ventana.getHeight() );
         return (int)(magnitud*diagonalVentana/diagonalBoard);
     }
-
 }

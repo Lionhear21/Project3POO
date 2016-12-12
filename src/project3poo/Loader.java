@@ -24,5 +24,4 @@ public class Loader {
         Loader.IMAGENES.put(filename,image);
         return image;
     }
-    
 }
