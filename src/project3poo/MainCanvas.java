@@ -82,6 +82,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
 
     private void repaint() { //Metodo el cual repinta todo el canvas
         this.context.clearRect(0, 0, (int) this.getWidth(), (int) this.getHeight()); //Borra el canvas actual
+        //this.context.drawImage(Loader.getImage("Red_Candy"), 0, 0, this.getWidth(), this.getHeight());
 
         if (this.prototype != null) { //Si el juego "aun esta corriendo" o "si contiene algun valor" ?
             //El pintador vuelve a pintar el canvas

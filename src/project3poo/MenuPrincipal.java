@@ -10,7 +10,9 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -34,7 +36,10 @@ public class MenuPrincipal extends Stage implements EventHandler
         StackPane root = new StackPane(); //Menu principal del juego
 
         //BorderPane menuPrincipal = new BorderPane();
-        
+        //Image image = new Image(getClass().getResourceAsStream("Red_Candy"));
+        //Label fondo = new Label("", new ImageView(image));
+        //root.getChildren().add(fondo);
+                
         VBox centralPane = new VBox();
         this.jugar = new Button("Jugar");
         this.jugar.setPrefWidth(500);
@@ -70,6 +75,7 @@ public class MenuPrincipal extends Stage implements EventHandler
             if(!this.gameWindow.isShowing()) {
                 this.gameWindow.setResizable(false);
                 this.gameWindow.show();
+
             }
         }
     }

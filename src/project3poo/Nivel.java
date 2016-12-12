@@ -73,10 +73,10 @@ public class Nivel
     public Candy getCandy(double x , double y){
         for(int i = 0; i < this.verticalBoxes; i++){
             for(int j = 0; j < this.horizontalBoxes;j++){
-                if( x > this.tablero[i][j].getX() && y > this.tablero[i][j].getY() ){
+                if( x > j*this.tablero[i][j].getX() && y > i*this.tablero[i][j].getY() ){
                     if( x < this.tablero[i][j+1].getX() && y < this.tablero[i+1][j].getY()){
                         System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
-                        //System.out.println(this.tablero[i+1][j].getX() + "\n" + this.tablero[i][j+1].getY());
+                        System.out.println(this.tablero[i+1][j].getX() + "\n" + this.tablero[i][j+1].getY());
                         return this.tablero[i][j];
                     }
                 }
