@@ -42,7 +42,10 @@ public class MenuPrincipal extends Stage implements EventHandler
         //Image image = new Image(getClass().getResourceAsStream("Red_Candy"));
         //Label fondo = new Label("", new ImageView(image));
         //root.getChildren().add(fondo);
-                
+        
+        Label fondo = new Label("", new ImageView(Loader.getImage("fondoMenu.jpg")));
+        root.getChildren().add(fondo);
+        
         VBox centralPane = new VBox(20);
         this.jugar = new Button("Jugar");
         this.jugar.setPrefWidth(300);
@@ -75,7 +78,7 @@ public class MenuPrincipal extends Stage implements EventHandler
     {
         if( event.getSource() == this.jugar ) {
             if(!this.gameWindow.isShowing()) {
-                this.gameWindow.setResizable(true);
+                this.gameWindow.setResizable(false);
                 this.gameWindow.show();
             }
         }
