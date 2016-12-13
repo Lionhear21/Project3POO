@@ -109,8 +109,8 @@ public class Prototype {
             int count = 0;
             int menos = 0;
             int l = 0;
-            for(int k = 1 ; k < nivel.getHorizontalBoxes() - menos; k++){
-                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo())){
+            for(int k = 0 ; k < nivel.getHorizontalBoxes() - menos; k++){
+                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo()) && ((nivel.getTablero()[i2][j2+k]) != null)){
                     count++;
                     menos--;
                     
@@ -122,8 +122,8 @@ public class Prototype {
             }
             
             if(count >= 3){
-                for(int k = 0 ; k <= l ; k++) {
-                    nivel.getTablero()[i2][j2+k].setTipo(Tipo.AZUL); 
+                for(int k = 0 ; k < l ; k++) {
+                    nivel.getTablero()[i2][j2+k].setTipo(Tipo.NULL); 
                 }
             }
         }

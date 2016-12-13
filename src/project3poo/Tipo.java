@@ -16,7 +16,8 @@ public enum Tipo {
     NARANJO("Orange_Candy.png"),
     PURPURA("Purple_Candy.png"),
     ROJO("Red_Candy.png"),
-    AMARILLO("Yellow_Candy.png");
+    AMARILLO("Yellow_Candy.png"),
+    NULL("null.png");
     
     private final String filename;
     
