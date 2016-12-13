@@ -78,11 +78,8 @@ public class Nivel
         
         int j = ((int)Math.round(x) - this.xInicio)/ANCHO_CANDY;
         int i = ((int)Math.round(y) - this.yInicio)/ALTO_CANDY;
-        
         System.out.printf("X: " + j + " "+ "Y: " + i);
-        
         System.out.println(this.tablero[i][j].getTipo());
-        
         return this.tablero[i][j];
         
     }

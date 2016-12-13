@@ -66,12 +66,17 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             double yConverted = (y * this.prototype.getMundo().getHeight())/600;
             
             System.out.println("X: " + x + "\nY: " + y);
-            Candy candy = prototype.getNivel(0).getCandy( x, y ); //obtengo el objeto en clickeado
+            Candy candy = prototype.getNivel(0).getCandy( xConverted, yConverted ); //obtengo el objeto en clickeado
             this.swaps[count] = candy;
             this.count++;
+            
+//            if(this.count == 1 && this.swaps[count] != null){
+//                if(this.swaps[count].getX())
+//            }
+            
             if(this.count == 2){
-                //this.prototype.changePosition(this.prototype.getNivel(0), swaps);
-                this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
+                this.prototype.mechanics(this.prototype.getNivel(0), swaps);
+                //this.prototype.checkeo(this.prototype.getNivel(0), 6, 6);
                 this.repaint(); //Repinta el canvas
                 this.count = 0;
             }
