@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -23,8 +24,9 @@ public class MainStage extends Stage
     public MainStage(MenuPrincipal mainWindow) {
         
         this.mainWindow = mainWindow;
-        
+        this.initModality(Modality.APPLICATION_MODAL);
         super.setTitle("Candy Crush 100% real no fake 2016 un link mega");
+        
         BorderPane mainPane = new BorderPane(); //Panel principal
         
         HBox hud = new HBox(20);

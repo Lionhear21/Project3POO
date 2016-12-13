@@ -75,7 +75,6 @@ public class MenuPrincipal extends Stage implements EventHandler
     {
         if( event.getSource() == this.jugar ) {
             if(!this.gameWindow.isShowing()) {
-                this.close();
                 this.gameWindow.setResizable(true);
                 this.gameWindow.show();
             }
@@ -83,7 +82,6 @@ public class MenuPrincipal extends Stage implements EventHandler
         
         if( event.getSource() == this.instrucciones ) {
             if(!this.instruccionesWindow.isShowing()) {
-                this.close();
                 this.instruccionesWindow.setResizable(false);
                 this.instruccionesWindow.show();
             }
@@ -91,7 +89,6 @@ public class MenuPrincipal extends Stage implements EventHandler
         
         if( event.getSource() == this.ranking ) {
             if(!this.puntajesWindow.isShowing()) {
-                this.close();
                 this.puntajesWindow.setResizable(false);
                 this.puntajesWindow.show();
             }

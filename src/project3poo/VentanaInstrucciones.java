@@ -5,9 +5,11 @@
  */
 package project3poo;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -21,12 +23,15 @@ public class VentanaInstrucciones extends Stage
     public VentanaInstrucciones(MenuPrincipal mainWindow)
     {
         this.mainWindow = mainWindow;
-        
+        this.initModality(Modality.APPLICATION_MODAL);
         super.setTitle("Instrucciones");
         
         StackPane root = new StackPane();
         
-        //Label label = new Label("", new ImageView(Loader.getImage()));
-        //root.getChildren().add(label);
+        Label fondo = new Label("", new ImageView(Loader.getImage("instrucciones.jpg")));
+        root.getChildren().add(fondo);
+        
+        Scene scene = new Scene(root, 640, 600);
+        this.setScene(scene);
     }
 }

@@ -23,8 +23,6 @@ public class Main extends Application {
         System.out.println("Hora : " + calendar.get(Calendar.HOUR));
         System.out.println("Minuto : " + calendar.get(Calendar.MINUTE));
         System.out.println("Segundo : " + calendar.get(Calendar.SECOND));
-         
-        
         
         launch(args);
     }

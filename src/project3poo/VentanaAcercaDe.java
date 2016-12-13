@@ -28,12 +28,8 @@ public class VentanaAcercaDe extends Stage
         
         StackPane root = new StackPane();
         
-        Label fondo = new Label("hola", new ImageView(Loader.getImage("fondo.jpg")));
-        fondo.setMinWidth(400);
-        fondo.setMinHeight(400);
-        
+        Label fondo = new Label("", new ImageView(Loader.getImage("foto.jpg")));
         root.getChildren().add(fondo);
-        
         
         Scene scene = new Scene(root, 640, 600);
         this.setScene(scene);

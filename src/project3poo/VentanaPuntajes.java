@@ -5,7 +5,9 @@
  */
 package project3poo;
 
+import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -19,9 +21,12 @@ public class VentanaPuntajes extends Stage
     public VentanaPuntajes(MenuPrincipal mainWindow)
     {
         this.mainWindow = mainWindow;
-        
+        this.initModality(Modality.APPLICATION_MODAL);
         super.setTitle("Ranking de puntuaciones");
         
         StackPane root = new StackPane();
+        
+        Scene scene = new Scene(root, 640, 600);
+        this.setScene(scene);
     }
 }
