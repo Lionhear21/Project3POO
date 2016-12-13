@@ -58,14 +58,19 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
     public void handle(Event event) {
         if (event.getEventType() == MouseEvent.MOUSE_PRESSED){
             MouseEvent me = (MouseEvent) event;
+            
             double x = me.getX(); //obtengo el x del mouse
             double y = me.getY(); //obtengo el y del mouse
+            
+            double xConverted = (x * this.prototype.getMundo().getWidth())/800;
+            double yConverted = (y * this.prototype.getMundo().getHeight())/600;
+            
             System.out.println("X: " + x + "\nY: " + y);
-            Candy candy = prototype.getNivel(0).getCandy(720, 480, x, y); //obtengo el objeto en clickeado
+            Candy candy = prototype.getNivel(0).getCandy( x, y ); //obtengo el objeto en clickeado
             this.swaps[count] = candy;
             this.count++;
             if(this.count == 2){
-                this.prototype.changePosition(this.prototype.getNivel(0), swaps);
+                //this.prototype.changePosition(this.prototype.getNivel(0), swaps);
                 this.prototype.checkeo(this.prototype.getNivel(0), 0, 0);
                 this.repaint(); //Repinta el canvas
                 this.count = 0;
@@ -88,7 +93,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             //El pintador vuelve a pintar el canvas
             Painter.paint(this.prototype, //Con el juego... 
                     this.context, //El buffer...
-                    prototype.getBoard(), //El tablero de juego...
+                    prototype.getMundo(), //El tablero de juego...
                     new Dimension((int) this.getWidth(), (int) this.getHeight())); //...y el tamaño
         }
     }

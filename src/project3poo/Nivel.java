@@ -74,22 +74,16 @@ public class Nivel
         this.tablero = tablero;
     }
     
-    public Candy getCandy(int width , int heigth, double x , double y){
+    public Candy getCandy( double x , double y){
         
-        int j = (int)Math.round((width - x)/ANCHO_CANDY);
-        int i = (int)Math.round((heigth - y)/ALTO_CANDY);
+        int j = ((int)Math.round(x) - this.xInicio)/ANCHO_CANDY;
+        int i = ((int)Math.round(y) - this.yInicio)/ALTO_CANDY;
+        
+        System.out.printf("X: " + j + " "+ "Y: " + i);
         
         System.out.println(this.tablero[i][j].getTipo());
         
         return this.tablero[i][j];
         
-        
-                /*if( rx > this.tablero[i][j].getX() && ry > this.tablero[i][j].getY() ){
-                    if( rx < this.tablero[i][j+1].getX() && ry < this.tablero[i][j].getY()){
-                        System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
-                        System.out.println(rx + "" + ry);
-                        return this.tablero[i][j];
-                    }
-                }*/
     }
 }

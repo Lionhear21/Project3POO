@@ -16,14 +16,14 @@ import java.util.Iterator;
 public class Prototype {
     static private final int ACTUAL_SCORE = 0; //Puntaje actual del juego
     
-    private Dimension board; //Tamaño del tablero de juego
+    private Dimension mundo; //Tamaño del tablero de juego
     private HashMap<Integer,Nivel> levels; //ArrayList con todos los dulces posibles
     private ArrayList<Player> players; //ArrayList con todos los jugadores que han participado
     private boolean initiate; // Estado del juego //true = Iniciado || false = No Iniciado
     
     //Constructor
     public Prototype(int width, int heigth) {
-        this.board = new Dimension(width,heigth); //Se le da el tamaño total de la ventana al tablero
+        this.mundo = new Dimension(width,heigth); //Se le da el tamaño total de la ventana al tablero
         this.levels = new HashMap();
         this.players = new ArrayList<>();
         
@@ -56,8 +56,8 @@ public class Prototype {
         this.initiate = initiate;
     }
     
-    public Dimension getBoard(){
-        return this.board;
+    public Dimension getMundo(){
+        return this.mundo;
     }
 
     public int size() {
