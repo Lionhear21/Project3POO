@@ -34,7 +34,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
 
     //Constructor
     public MainCanvas() {
-        this.prototype = new Prototype(1366, 768); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
+        this.prototype = new Prototype(720, 480); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
         this.context = super.getGraphicsContext2D(); //Instanciamos el Buffer del Canvas
 
         //Copiado de ejemplos profe raskanoid, Clase "FXRaskanoidCanvas.java"
@@ -61,7 +61,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             double x = me.getX(); //obtengo el x del mouse
             double y = me.getY(); //obtengo el y del mouse
             System.out.println("X: " + x + "\nY: " + y);
-            Candy candy = prototype.getNivel(0).getCandy(x, y); //obtengo el objeto en clickeado
+            Candy candy = prototype.getNivel(0).getCandy(720, 480, x, y); //obtengo el objeto en clickeado
             this.swaps[count] = candy;
             this.count++;
             if(this.count == 2){

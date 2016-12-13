@@ -19,13 +19,17 @@ public class Nivel
     private int horizontalBoxes;
     private int verticalBoxes;
     private Candy[][] tablero;
+    private int xInicio;
+    private int yInicio;
 
     public Nivel(int width , int height, int horizontalBoxes, int verticalBoxes) {
         this.horizontalBoxes = horizontalBoxes;
         this.verticalBoxes = verticalBoxes;
+        
         this.tablero = new Candy[this.horizontalBoxes][this.verticalBoxes];
-        int anchoCandyVentana = (width/6);
-        int altoCandyVentana = (height/6);
+        
+        this.xInicio = (width -(ANCHO_CANDY * this.horizontalBoxes))/2 ;
+        this.yInicio = (height -(ALTO_CANDY * this.verticalBoxes))/2 ;
         
         for (int i = 0; i < verticalBoxes; i++) {
             for(int j = 0; j < horizontalBoxes; j++) {
@@ -41,7 +45,7 @@ public class Nivel
                     case 5: tipo = Tipo.VERDE; break; // Se cambia el tipo de dulce
                 }
                 //Se crea el nuevo dulce y se  aloja en un ArrayList
-                this.tablero[i][j] = new Candy((j+1)*width, (i+1)*height, anchoCandyVentana, altoCandyVentana, tipo);
+                this.tablero[i][j] = new Candy(( xInicio + (j*ANCHO_CANDY)), ( yInicio + (i*ALTO_CANDY)), ANCHO_CANDY, ALTO_CANDY, tipo);
             }
         }
     }
@@ -70,27 +74,16 @@ public class Nivel
         this.tablero = tablero;
     }
     
-    public Candy getCandy(double x , double y){
+    public Candy getCandy(int width , int heigth, double x , double y){
+        
+        int j = (int)Math.round((width - x)/ANCHO_CANDY);
+        int i = (int)Math.round((heigth - y)/ALTO_CANDY);
+        
+        System.out.println(this.tablero[i][j].getTipo());
+        
+        return this.tablero[i][j];
         
         
-        
-        
-        
-        int rx = (int)Math.round(x);
-        int ry = (int)Math.round(y);
-        for(int i = 0; i < this.verticalBoxes; i++){
-            for(int j = 0; j < this.horizontalBoxes;j++){
-                if( this.tablero[i][j].getX() - rx > 0 ){
-                    if( this.tablero[i][j].getY() - ry > 0){
-                        System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
-                        System.out.println(this.tablero[i][j].getTipo());
-                        return this.tablero[i][j];
-                    
-                    }
-                }
-                
-                
-                
                 /*if( rx > this.tablero[i][j].getX() && ry > this.tablero[i][j].getY() ){
                     if( rx < this.tablero[i][j+1].getX() && ry < this.tablero[i][j].getY()){
                         System.out.println(this.tablero[i][j].getX() + "\n" + this.tablero[i][j].getY());
@@ -98,8 +91,5 @@ public class Nivel
                         return this.tablero[i][j];
                     }
                 }*/
-            }
-        }
-        return null;
     }
 }
