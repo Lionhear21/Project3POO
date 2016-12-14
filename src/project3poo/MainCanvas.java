@@ -72,7 +72,9 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             
             if(this.count == 2){
                 this.prototype.mechanics(this.prototype.getNivel(0), swaps);
-                this.prototype.match(this.prototype.getNivel(0));
+                while(this.prototype.match(this.prototype.getNivel(0)) != 0){
+                    this.prototype.cascade(this.prototype.getNivel(0));
+                }
                 //this.prototype.checkeo(this.prototype.getNivel(0), 6, 6);
                 this.repaint(); //Repinta el canvas
                 this.count = 0;
