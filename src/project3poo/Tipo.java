@@ -11,19 +11,13 @@ package project3poo;
  */
 public enum Tipo 
 {
-    AZUL("Blue_Candy.png"),
-    VERDE("Green_Candy.png"),
-    NARANJO("Orange_Candy.png"),
-    PURPURA("Purple_Candy.png"),
-    ROJO("Red_Candy.png"),
-    AMARILLO("Yellow_Candy.png"),
-    NULL("null.png"),
-    AZUL_SELECTED("Blue_Candy_selected.png"),
-    VERDE_SELECTED("Green_Candy_selected.png"),
-    NARANJO_SELECTED("Orange_Candy_selected.png"),
-    PURPURA_SELECTED("Purple_Candy_selected.png"),
-    ROJO_SELECTED("Red_Candy_selected.png"),
-    AMARILLO_SELECTED("Yellow_Candy_selected.png");
+    AZUL("Blue_Candy.png","Blue_Candy_selected.png"),
+    VERDE("Green_Candy.png","Green_Candy_selected.png"),
+    NARANJO("Orange_Candy.png","Orange_Candy_selected.png"),
+    PURPURA("Purple_Candy.png","Purple_Candy_selected.png"),
+    ROJO("Red_Candy.png","Red_Candy_selected.png"),
+    AMARILLO("Yellow_Candy.png","Yellow_Candy_selected.png"),
+    NULL("null.png","null.png");
     
     private final String filename;
     private final String filenameSelected;
@@ -31,10 +25,16 @@ public enum Tipo
     private Tipo(String filename, String filenameSelected)
     {
         this.filename = filename;
+        this.filenameSelected = filenameSelected;
     }
 
     public String getFilename()
     {
         return filename;
+    }
+    
+    public String getFilenameSelected()
+    {
+        return filenameSelected;
     }
 }

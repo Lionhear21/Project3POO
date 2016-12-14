@@ -62,8 +62,13 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             double yConverted = (y * this.prototype.getMundo().getHeight())/600;
             
             Candy candy = prototype.getNivel(this.getLevelActual()).getCandy( xConverted, yConverted ); //obtengo el objeto en clickeado
+            //String tipo = prototype.getNivel(this.getLevelActual()).getCandy(xConverted,yConverted).getTipo().getFilenameSelected();
             this.swaps[count] = candy;
             this.count++;
+            this.repaint(); //Repinta el canvas
+//            if(this.swaps[0] != null){
+//                this.prototype.getNivel(this.getLevelActual()).getCandy(xConverted, yConverted).setTipo();
+//            }
             
             if(this.count == 2){
                 this.prototype.mechanics(this.prototype.getNivel(this.getLevelActual()), swaps);
@@ -94,9 +99,9 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
                         this.prototype.cascade(this.prototype.getNivel(this.getLevelActual()));
                     }
                 }
-                this.repaint(); //Repinta el canvas
-                this.count = 0;
                 
+                this.count = 0;
+                this.repaint(); //Repinta el canvas
                 this.mainStage.lblVidas.setText( this.prototype.getVidas() + "" );
                 this.mainStage.lblPuntos.setText( this.prototype.getLevelScore() + "" );
             }
@@ -117,7 +122,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             Painter.paint(this.prototype, //Con el juego... 
                     this.context, //El buffer...
                     prototype.getMundo(), //El tablero de juego...
-                    new Dimension((int) this.getWidth(), (int) this.getHeight()),this.getLevelActual()); //...y el tamaño
+                    new Dimension((int) this.getWidth(), (int) this.getHeight()),this.getLevelActual(), this.swaps); //...y el tamaño
         }
     }
     
