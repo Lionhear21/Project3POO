@@ -31,7 +31,7 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
     public MainCanvas( MainStage mainStage ) {
         this.mainStage = mainStage;
         this.prototype = new Prototype(720, 480); //Instanciamos el juego(ancho de la ventana, largo de la ventana)
-        this.levelActual = 0;
+        this.levelActual = 1;
         
         while(this.prototype.match(this.prototype.getNivel(this.levelActual)) != 0){
             this.prototype.cascade(this.prototype.getNivel(this.levelActual));
@@ -83,8 +83,8 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
                                 this.prototype.setTotalScore(this.prototype.getTotalScore() + this.prototype.getLevelScore());
                                 this.setLevelActual(this.levelActual+1);
                             }
-                            else{
-                                this.prototype.setVidas(this.prototype.getVidas()-1);
+                            if(this.prototype.getLevelScore() < this.prototype.getNivel(this.getLevelActual()).getRequiredScore()){
+                                this.prototype.setVidas(this.prototype.getVidas() - 1);
                                 if(this.prototype.getVidas() == 0){
                                     prototype.terminarJuego(prototype.getNivel(this.getLevelActual()));
                                 }
@@ -97,8 +97,10 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
                 this.repaint(); //Repinta el canvas
                 this.count = 0;
                 
+                this.mainStage.lblLvl.setText(getLevelActual() + "" );
                 this.mainStage.lblVidas.setText( this.prototype.getVidas() + "" );
                 this.mainStage.lblPuntos.setText( this.prototype.getLevelScore() + "" );
+                this.mainStage.lblMoves.setText( this.prototype.getMovimientosRestantes() + "" );
             }
         }
     }
