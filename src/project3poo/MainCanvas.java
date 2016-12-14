@@ -99,7 +99,6 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
                 
                 this.mainStage.lblVidas.setText( this.prototype.getVidas() + "" );
                 this.mainStage.lblPuntos.setText( this.prototype.getLevelScore() + "" );
-                
             }
         }
     }
