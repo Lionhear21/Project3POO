@@ -107,22 +107,22 @@ public class Prototype {
             
             
             
-            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
-                if((j2 + i) < nivel.getHorizontalBoxes()){
-                    if((nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo()) && (nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo())){
-                    
-                        nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
-                        nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
-                        nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
-                    }
-                }
-                
-            }
+//            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
+//                if((j2 + i) < nivel.getHorizontalBoxes()){
+//                    if((nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo()) && (nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo())){
+//                    
+//                        nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
+//                        nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
+//                        nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
+//                    }
+//                }
+//                
+//            }
             
             
             
             
-            
+//            -----------------------ELIO--------------------
 //            int count = 0;
 //            int i = 0;
 //            while(nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+i].getTipo() 
@@ -151,7 +151,7 @@ public class Prototype {
             
             
             
-            
+//            -----------------------------------WILL-------------------------
             //Match solo derecha
 //            int count = 0;
 //            int count2 = 0;
@@ -203,5 +203,177 @@ public class Prototype {
 //                }
 //            }
 //        }
+    public void match(Nivel nivel){
+        Tipo tipo = Tipo.NULL;
+        
+        
+//        for(int i = 0; i < 5; i++){
+//            for(int j = 0; j < 5; j++ ){
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i+1][j].getTipo() && 
+//                    nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo() &&
+//                    nivel.getTablero()[i+2][j].getTipo() == nivel.getTablero()[i+3][j].getTipo() &&
+//                    nivel.getTablero()[i+3][j].getTipo() == nivel.getTablero()[i+4][j].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i+1][j].setTipo(tipo);
+//                    nivel.getTablero()[i+2][j].setTipo(tipo);
+//                    nivel.getTablero()[i+3][j].setTipo(tipo);
+//                    nivel.getTablero()[i+4][j].setTipo(tipo);
+//                    
+//                }
+//                
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+//                    nivel.getTablero()[i][j+1].getTipo() == nivel.getTablero()[i][j+2].getTipo() &&
+//                    nivel.getTablero()[i][j+2].getTipo() == nivel.getTablero()[i][j+3].getTipo() &&
+//                    nivel.getTablero()[i][j+3].getTipo() == nivel.getTablero()[i][j+4].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i][j+1].setTipo(tipo);
+//                    nivel.getTablero()[i][j+2].setTipo(tipo);
+//                    nivel.getTablero()[i][j+3].setTipo(tipo);
+//                    nivel.getTablero()[i][j+4].setTipo(tipo);
+//                    
+//                }
+//            }
+//        }
+        
+//        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+//            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+//                if((i+3) < nivel.getVerticalBoxes()){
+//                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+//                        nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo() &&
+//                        nivel.getTablero()[i+2][j].getTipo() == nivel.getTablero()[i+3][j].getTipo()){
+//
+//                        nivel.getTablero()[i][j].setTipo(tipo);
+//                        nivel.getTablero()[i+1][j].setTipo(tipo);
+//                        nivel.getTablero()[i+2][j].setTipo(tipo);
+//                        nivel.getTablero()[i+3][j].setTipo(tipo);
+//
+//                    }
+//                }
+//                
+//                if((i+3) < nivel.getHorizontalBoxes()){
+//                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+//                        nivel.getTablero()[i][j+2].getTipo() == nivel.getTablero()[i][j+2].getTipo() &&
+//                        nivel.getTablero()[i][j+3].getTipo() == nivel.getTablero()[i][j+3].getTipo()){
+//
+//                        nivel.getTablero()[i][j].setTipo(tipo);
+//                        nivel.getTablero()[i][j+1].setTipo(tipo);
+//                        nivel.getTablero()[i][j+2].setTipo(tipo);
+//                        nivel.getTablero()[i][j+3].setTipo(tipo);
+//
+//                    }
+//                }
+//            }
+//        }
+        
+        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                if( (i+2) < nivel.getHorizontalBoxes() ){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i+1][j].getTipo() && 
+                        nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i+1][j].setTipo(tipo);
+                        nivel.getTablero()[i+2][j].setTipo(tipo);
+                        
+
+                    }
+                }
+                
+                if( (j+2) < nivel.getVerticalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+                        nivel.getTablero()[i][j+1].getTipo() == nivel.getTablero()[i][j+2].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i][j+1].setTipo(tipo);
+                        nivel.getTablero()[i][j+2].setTipo(tipo);
+                    }
+                }
+            }
+        }
+        
+//        for(int i = 8; i > 1 ; i--){
+//            for(int j = 8; j > 1 ; j--){
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i-1][j].getTipo() && 
+//                    nivel.getTablero()[i-1][j].getTipo() == nivel.getTablero()[i-2][j].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i-1][j].setTipo(tipo);
+//                    nivel.getTablero()[i-2][j].setTipo(tipo);
+//                    
+//                }
+//                
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j-1].getTipo() && 
+//                    nivel.getTablero()[i][j-2].getTipo() == nivel.getTablero()[i][j-2].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i][j-1].setTipo(tipo);
+//                    nivel.getTablero()[i][j-2].setTipo(tipo);
+//                }
+//            }
+//        }
+        
+//        for(int i = 8; i > 8; i--){
+//            for(int j = 8; j > 8; j--){
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i-1][j].getTipo() && 
+//                    nivel.getTablero()[i-1][j].getTipo() == nivel.getTablero()[i-2][j].getTipo() &&
+//                    nivel.getTablero()[i-2][j].getTipo() == nivel.getTablero()[i-3][j].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i-1][j].setTipo(tipo);
+//                    nivel.getTablero()[i-2][j].setTipo(tipo);
+//                    nivel.getTablero()[i-3][j].setTipo(tipo);
+//                    
+//                }
+//                
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j-1].getTipo() && 
+//                    nivel.getTablero()[i][j-2].getTipo() == nivel.getTablero()[i][j-2].getTipo() &&
+//                    nivel.getTablero()[i][j-3].getTipo() == nivel.getTablero()[i][j-3].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i][j-1].setTipo(tipo);
+//                    nivel.getTablero()[i][j-2].setTipo(tipo);
+//                    nivel.getTablero()[i][j-3].setTipo(tipo);
+//                    
+//                }
+//                
+//            }
+//        }
+        
+//        for(int i = 8; i > 3; i--){
+//            for(int j = 8; j > 3; j--){
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i-1][j].getTipo() && 
+//                    nivel.getTablero()[i-1][j].getTipo() == nivel.getTablero()[i-2][j].getTipo() &&
+//                    nivel.getTablero()[i-2][j].getTipo() == nivel.getTablero()[i-3][j].getTipo() &&
+//                    nivel.getTablero()[i-3][j].getTipo() == nivel.getTablero()[i-4][j].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i-1][j].setTipo(tipo);
+//                    nivel.getTablero()[i-2][j].setTipo(tipo);
+//                    nivel.getTablero()[i-3][j].setTipo(tipo);
+//                    nivel.getTablero()[i-4][j].setTipo(tipo);
+//                    
+//                }
+//                
+//                if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j-1].getTipo() && 
+//                    nivel.getTablero()[i][j-1].getTipo() == nivel.getTablero()[i][j-2].getTipo() &&
+//                    nivel.getTablero()[i][j-2].getTipo() == nivel.getTablero()[i][j-3].getTipo() &&
+//                    nivel.getTablero()[i][j-3].getTipo() == nivel.getTablero()[i][j-4].getTipo()){
+//                    
+//                    nivel.getTablero()[i][j].setTipo(tipo);
+//                    nivel.getTablero()[i][j-1].setTipo(tipo);
+//                    nivel.getTablero()[i][j-2].setTipo(tipo);
+//                    nivel.getTablero()[i][j-3].setTipo(tipo);
+//                    nivel.getTablero()[i][j-4].setTipo(tipo);
+//                    
+//                }
+//            }
+//        }
+        
+        
+        
+        
+    }
     
 }

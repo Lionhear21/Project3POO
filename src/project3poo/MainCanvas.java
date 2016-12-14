@@ -70,12 +70,9 @@ public class MainCanvas extends Canvas implements EventHandler, ChangeListener {
             this.swaps[count] = candy;
             this.count++;
             
-//            if(this.count == 1 && this.swaps[count] != null){
-//                if(this.swaps[count].getX())
-//            }
-            
             if(this.count == 2){
                 this.prototype.mechanics(this.prototype.getNivel(0), swaps);
+                this.prototype.match(this.prototype.getNivel(0));
                 //this.prototype.checkeo(this.prototype.getNivel(0), 6, 6);
                 this.repaint(); //Repinta el canvas
                 this.count = 0;
