@@ -105,23 +105,17 @@ public class Prototype {
                 nivel.getTablero()[i2][j2].setTipo( tipoAux );
             }
             
-            
-            
-            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
-                if((j2 + i) < nivel.getHorizontalBoxes()){
-                    if((nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo()) && (nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo())){
-                    
-                        nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
-                        nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
-                        nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
-                    }
-                }
-                
-            }
-            
-            
-            
-            
+//            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
+//                if((j2 + i) < nivel.getHorizontalBoxes()){
+//                    if((nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo()) && (nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo())){
+//                    
+//                        nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
+//                        nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
+//                        nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
+//                    }
+//                }
+//                
+//            }
             
 //            int count = 0;
 //            int i = 0;
@@ -146,27 +140,21 @@ public class Prototype {
 //                
 //            }
                 
-            
-            
-            
-            
-            
-            
             //Match solo derecha
-//            int count = 0;
-//            int count2 = 0;
-//            int l = 0;
-//            
-//            for(int k = 0 ; k < nivel.getHorizontalBoxes(); k++){
-//                
-//                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo()) && nivel.getTablero()[i2][j2] != nivel.getTablero()[i2][5]){
-//                    count++;
-//                }
-//                else{
-//                    l = k;
-//                    break;
-//                }
-//                
+            int count = 0;
+            int count2 = 0;
+            int l = 0;
+            
+            for(int k = 0 ; k < nivel.getHorizontalBoxes(); k++){
+                
+                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo()) && nivel.getTablero()[i2][j2] != nivel.getTablero()[i2][5]){
+                    count++;
+                }
+                else{
+                    l = k;
+                    break;
+                }
+                
 //                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2-k].getTipo()) && nivel.getTablero()[i2][j2] != nivel.getTablero()[i2][0]){
 //                    count++;
 //                    count2++;
@@ -175,13 +163,13 @@ public class Prototype {
 //                    l = k;
 //                    break;
 //                }
-//            }
-//
-//            if(count >= 3){
-//                for(int k = 0 ; k < count ; k++) {
-//                    nivel.getTablero()[i2][j2-count2+k].setTipo(Tipo.NULL); 
-//                }
-//            }
+            }
+
+            if(count >= 3){
+                for(int k = 0 ; k < count ; k++) {
+                    nivel.getTablero()[i2][j2-count2+k].setTipo(Tipo.NULL); 
+                }
+            }
         }
     }
         
