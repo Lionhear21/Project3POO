@@ -7,7 +7,6 @@ package project3poo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -24,6 +23,7 @@ public class Prototype
     private int levelScore;
     private int totalScore;
     private int movimientosRestantes;
+    private int vidas;
     
     //Constructor
     public Prototype(int width, int heigth) {
@@ -33,6 +33,7 @@ public class Prototype
         this.levelScore = 0;
         this.totalScore = 0;
         this.movimientosRestantes = 15;
+        this.vidas = 5;
         
         for(int i = 0; i < 10; i++){
             Nivel nivel = new Nivel(width,heigth,6,6, ((100*(i+1)) + 500));
@@ -46,14 +47,6 @@ public class Prototype
     {
         return this.levels.get(indice);
     }
-
-    /*public int getActualScore() {
-        return actualScore;
-    }
-
-    public void setActualScore(int actualScore) {
-        this.actualScore = actualScore;
-    }*/
 
     public boolean isInitiate() {
         return initiate;
@@ -75,8 +68,13 @@ public class Prototype
         return players.add(player); 
     }
     
-    public Player get(int index) {
-        return players.get(index);
+    public Player getPlayer(String name) {
+        for(Player existente : this.players){
+            if(existente.getName().equals(name)){
+                return existente;
+            }
+        }
+        return null;
     }
 
     public boolean remove(Player player) {
@@ -117,21 +115,19 @@ public class Prototype
             this.registerWindow.show();
         }
     }
-    
-//    public void mostrar(){
-//        if((this.terminarJuego(nivel.getLevelActual())) == true){
-//            if(!this.gameWindow.isShowing()) {
-//                this.gameWindow.setResizable(false);
-//                this.gameWindow.show();
-//            }
-//        }
-//    }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
     
     public void mechanics(Nivel nivel, Candy[] swaps){
         
         if( swaps.length == 2 )
         {
-            System.out.println("cambiar");
             int i1, j1;
             int i2, j2;
             
@@ -140,13 +136,8 @@ public class Prototype
             i2 = ((swaps[1].getY())/64);
             j2 = ((swaps[1].getX())/64)-2;
             
-            System.out.printf( "(%d, %d) <-> (%d, %d)\n", i1, j1, i2, j2 );
-            
             if( (i1 == i2 && Math.abs(j1-j2) <= 1) || (j1 == j2 && Math.abs(i1-i2) <= 1))
             {
-                //realizo el swap
-                System.out.println("estan juntos");
-                
                 Tipo tipoAux = swaps[0].getTipo();
                 nivel.getTablero()[i1][j1].setTipo( swaps[1].getTipo() );
                 nivel.getTablero()[i2][j2].setTipo( tipoAux );
@@ -259,8 +250,6 @@ public class Prototype
     public void cascade(Nivel nivel){
         int flag = 1;
         while(flag != 0){
-            System.out.println("Pass");
-
             for(int i = 1; i < nivel.getVerticalBoxes(); i++){
                 for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
                     if(nivel.getTablero()[i][j].getTipo() == Tipo.NULL){
@@ -270,7 +259,7 @@ public class Prototype
                 }
             }
 
-            //Se cran nuevos dulces si hay un null arriba
+            //Se crean nuevos dulces si hay un null arriba
             for(int j = 0; j < nivel.getVerticalBoxes(); j++){
                 if(nivel.getTablero()[0][j].getTipo() == Tipo.NULL){
 

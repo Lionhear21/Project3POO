@@ -72,5 +72,4 @@ public class Candy {
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
-    
 }

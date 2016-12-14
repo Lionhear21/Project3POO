@@ -5,22 +5,20 @@
  */
 package project3poo;
 
-import java.util.Date;
-
 /**
  *
  * @author chico
  */
 public class Player {
     private String name;
-    private Date date;
-    private int[] score;
+    private String date;
+    private int score;
 
 
-    public Player(String name, Date date) {
+    public Player(String name, int score, String date) {
         this.name = name;
         this.date = date;
-        this.score = new int[10];
+        this.score = score;
     }
 
     public String getName() {
@@ -31,21 +29,19 @@ public class Player {
         this.name = name;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public int getScore(int index) {
-        return score[index];
+    public int getScore() {
+        return score;
     }
 
-    public void setScore(int[] score) {
+    public void setScore(int score) {
         this.score = score;
     }
-    
-    
 }

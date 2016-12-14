@@ -11,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
@@ -61,8 +60,6 @@ public class MenuPrincipal extends Stage implements EventHandler
         centralPane.setAlignment(Pos.CENTER);
         root.getChildren().add(centralPane);
 
-        //menuPrincipal.setCenter(centralPane);
-        
         Scene scene = new Scene(root, 400, 600); 
         super.setScene(scene); 
         

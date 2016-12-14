@@ -5,6 +5,7 @@
  */
 package project3poo;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -31,7 +32,11 @@ public class VentanaAcercaDe extends Stage
         Label fondo = new Label("", new ImageView(Loader.getImage("foto.jpg")));
         root.getChildren().add(fondo);
         
-        Scene scene = new Scene(root, 640, 600);
+        Label texto = new Label("Elio Valenzuela\nWilliam Benítez");
+        root.getChildren().add(texto);
+        texto.setAlignment(Pos.BASELINE_LEFT);
+        
+        Scene scene = new Scene(root, 640, 400);
         this.setScene(scene);
     }
 }

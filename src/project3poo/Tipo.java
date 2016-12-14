@@ -30,5 +30,4 @@ public enum Tipo {
     {
         return filename;
     }
-    
 }

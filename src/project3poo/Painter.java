@@ -5,7 +5,6 @@
  */
 package project3poo;
 
-import javafx.event.Event;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
