@@ -105,27 +105,83 @@ public class Prototype {
                 nivel.getTablero()[i2][j2].setTipo( tipoAux );
             }
             
-            //Match solo derecha
-            int count = 0;
-            int menos = 0;
-            int l = 0;
-            for(int k = 0 ; k < nivel.getHorizontalBoxes() - menos; k++){
-                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo()) && ((nivel.getTablero()[i2][j2+k]) != null)){
-                    count++;
-                    menos--;
+            
+            
+            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
+                if((j2 + i) < nivel.getHorizontalBoxes()){
+                    if((nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo()) && (nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+1].getTipo())){
                     
+                        nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
+                        nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
+                        nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
+                    }
                 }
-                else{
-                    l = k;
-                    break;
-                }
+                
             }
             
-            if(count >= 3){
-                for(int k = 0 ; k < l ; k++) {
-                    nivel.getTablero()[i2][j2+k].setTipo(Tipo.NULL); 
-                }
-            }
+            
+            
+            
+            
+//            int count = 0;
+//            int i = 0;
+//            while(nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2+i].getTipo() 
+//                        || nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2-i].getTipo()){
+//            
+//                    count++;
+//                    i++;
+////                    nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
+////                    nivel.getTablero()[i2][j2-1].setTipo(Tipo.NULL);
+////                    nivel.getTablero()[i2][j2+1].setTipo(Tipo.NULL);
+//            }
+//            
+//            for(int j = 0; j < count; j ++){
+//                if(nivel.getTablero()[i2][j2+j].getTipo() == nivel.getTablero()[i2][j2].getTipo()
+//                        && nivel.getTablero()[i2][j2].getTipo() == nivel.getTablero()[i2][j2].getTipo()){
+//                    
+//                    nivel.getTablero()[i2][j2].setTipo(Tipo.NULL);
+//                    nivel.getTablero()[i2][j2-j].setTipo(Tipo.NULL);
+//                    nivel.getTablero()[i2][j2+j].setTipo(Tipo.NULL);
+//                    }
+//                
+//            }
+                
+            
+            
+            
+            
+            
+            
+            //Match solo derecha
+//            int count = 0;
+//            int count2 = 0;
+//            int l = 0;
+//            
+//            for(int k = 0 ; k < nivel.getHorizontalBoxes(); k++){
+//                
+//                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2+k].getTipo()) && nivel.getTablero()[i2][j2] != nivel.getTablero()[i2][5]){
+//                    count++;
+//                }
+//                else{
+//                    l = k;
+//                    break;
+//                }
+//                
+//                if((nivel.getTablero()[i2][j2].getTipo()) == (nivel.getTablero()[i2][j2-k].getTipo()) && nivel.getTablero()[i2][j2] != nivel.getTablero()[i2][0]){
+//                    count++;
+//                    count2++;
+//                }
+//                else{
+//                    l = k;
+//                    break;
+//                }
+//            }
+//
+//            if(count >= 3){
+//                for(int k = 0 ; k < count ; k++) {
+//                    nivel.getTablero()[i2][j2-count2+k].setTipo(Tipo.NULL); 
+//                }
+//            }
         }
     }
         
@@ -148,16 +204,4 @@ public class Prototype {
 //            }
 //        }
     
-    
-    public void checkeo(Nivel nivel, Candy candy)
-    {
-        Candy[][] tablero = nivel.getTablero();
-        //Checkeo vertical
-        
-        
-        
-        
-        
-        
-    }
 }
