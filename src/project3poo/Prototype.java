@@ -8,6 +8,7 @@ package project3poo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  *
@@ -104,6 +105,7 @@ public class Prototype {
                 nivel.getTablero()[i1][j1].setTipo( swaps[1].getTipo() );
                 nivel.getTablero()[i2][j2].setTipo( tipoAux );
             }
+<<<<<<< HEAD
             
 //            for(int i = 0; i < nivel.getHorizontalBoxes(); i++){
 //                if((j2 + i) < nivel.getHorizontalBoxes()){
@@ -168,28 +170,155 @@ public class Prototype {
             if(count >= 3){
                 for(int k = 0 ; k < count ; k++) {
                     nivel.getTablero()[i2][j2-count2+k].setTipo(Tipo.NULL); 
+=======
+        }
+    }
+    
+    public int match(Nivel nivel){
+        Tipo tipo = Tipo.NULL;
+        int flag = 0;
+        
+        //MATCH DE 5
+        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+            for(int j = 0; j < nivel.getHorizontalBoxes(); j++ ){
+                if((i+4) < nivel.getVerticalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i+1][j].getTipo() && 
+                        nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo() &&
+                        nivel.getTablero()[i+2][j].getTipo() == nivel.getTablero()[i+3][j].getTipo() &&
+                        nivel.getTablero()[i+3][j].getTipo() == nivel.getTablero()[i+4][j].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i+1][j].setTipo(tipo);
+                        nivel.getTablero()[i+2][j].setTipo(tipo);
+                        nivel.getTablero()[i+3][j].setTipo(tipo);
+                        nivel.getTablero()[i+4][j].setTipo(tipo);
+                        flag = 1;
+
+                    }
+                }
+                
+                if((j+4) < nivel.getHorizontalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+                        nivel.getTablero()[i][j+1].getTipo() == nivel.getTablero()[i][j+2].getTipo() &&
+                        nivel.getTablero()[i][j+2].getTipo() == nivel.getTablero()[i][j+3].getTipo() &&
+                        nivel.getTablero()[i][j+3].getTipo() == nivel.getTablero()[i][j+4].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i][j+1].setTipo(tipo);
+                        nivel.getTablero()[i][j+2].setTipo(tipo);
+                        nivel.getTablero()[i][j+3].setTipo(tipo);
+                        nivel.getTablero()[i][j+4].setTipo(tipo);
+                        flag = 1;
+                    }
+                }
+            }
+        }
+        
+        //MATCH DE 4
+        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                if((i+3) < nivel.getVerticalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i+1][j].getTipo() && 
+                        nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo() &&
+                        nivel.getTablero()[i+2][j].getTipo() == nivel.getTablero()[i+3][j].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i+1][j].setTipo(tipo);
+                        nivel.getTablero()[i+2][j].setTipo(tipo);
+                        nivel.getTablero()[i+3][j].setTipo(tipo);
+                        flag = 1;
+                    }
+                }
+                
+                if((j+3) < nivel.getHorizontalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+                        nivel.getTablero()[i][j+1].getTipo() == nivel.getTablero()[i][j+2].getTipo() &&
+                        nivel.getTablero()[i][j+2].getTipo() == nivel.getTablero()[i][j+3].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i][j+1].setTipo(tipo);
+                        nivel.getTablero()[i][j+2].setTipo(tipo);
+                        nivel.getTablero()[i][j+3].setTipo(tipo);
+                        flag = 1;
+                    }
+>>>>>>> origin/master
+                }
+            }
+        }
+        
+        //MATCH DE 3
+        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                if( (i+2) < nivel.getHorizontalBoxes() ){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i+1][j].getTipo() && 
+                        nivel.getTablero()[i+1][j].getTipo() == nivel.getTablero()[i+2][j].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i+1][j].setTipo(tipo);
+                        nivel.getTablero()[i+2][j].setTipo(tipo);
+                        flag = 1;
+                        
+
+                    }
+                }
+                
+                if( (j+2) < nivel.getVerticalBoxes()){
+                    if( nivel.getTablero()[i][j].getTipo() == nivel.getTablero()[i][j+1].getTipo() && 
+                        nivel.getTablero()[i][j+1].getTipo() == nivel.getTablero()[i][j+2].getTipo()){
+
+                        nivel.getTablero()[i][j].setTipo(tipo);
+                        nivel.getTablero()[i][j+1].setTipo(tipo);
+                        nivel.getTablero()[i][j+2].setTipo(tipo);
+                        flag = 1;
+                    }
+                }
+            }
+        }
+        return flag;
+    }
+    
+    public void cascade(Nivel nivel){
+        int flag = 1;
+        while(flag != 0){
+            System.out.println("Pass");
+
+            for(int i = 1; i < nivel.getVerticalBoxes(); i++){
+                for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                    if(nivel.getTablero()[i][j].getTipo() == Tipo.NULL){
+                        nivel.getTablero()[i][j].setTipo(nivel.getTablero()[i-1][j].getTipo());
+                        nivel.getTablero()[i-1][j].setTipo(Tipo.NULL);
+                    }
+                }
+            }
+
+            //Se cran nuevos dulces si hay un null arriba
+            for(int j = 0; j < nivel.getVerticalBoxes(); j++){
+                if(nivel.getTablero()[0][j].getTipo() == Tipo.NULL){
+
+                    Random random = new Random(); // Se instancia un un objeto Random
+                    int randomInt = random.nextInt(6); // Se crea un avariable int con una coeficiente aleatorio
+                    Tipo tipo = Tipo.AMARILLO; //Se instancia una clase tipo predefinida
+                    switch(randomInt) {
+                        case 0: tipo = Tipo.AMARILLO; break; // Se cambia el tipo de dulce
+                        case 1: tipo = Tipo.AZUL; break; // Se cambia el tipo de dulce
+                        case 2: tipo = Tipo.NARANJO; break; // Se cambia el tipo de dulce
+                        case 3: tipo = Tipo.PURPURA; break; // Se cambia el tipo de dulce
+                        case 4: tipo = Tipo.ROJO; break; // Se cambia el tipo de dulce
+                        case 5: tipo = Tipo.VERDE; break; // Se cambia el tipo de dulce
+                    }
+                    nivel.getTablero()[0][j].setTipo(tipo); // Se coloca el tipo aleatorio en el candy
+                }
+            }
+
+            flag = 0;
+            //"For que revisa si aun eisten Nulls"
+            for(int i = 0; i < nivel.getVerticalBoxes(); i++){
+                for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
+                    if(nivel.getTablero()[i][j].getTipo() == Tipo.NULL){
+                        flag = 1;
+                    }
                 }
             }
         }
     }
-        
-//        Tipo aux;
-//        Candy[][] tablero = nivel.getTablero();
-//        for(int i = 0; i < nivel.getVerticalBoxes(); i++){
-//            for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
-//                if( tablero[i][j] == swaps[0] ){
-//                    aux = tablero[i][j].getTipo();
-//                    tablero[i][j].setTipo(swaps[1].getTipo());
-//                    for(int k = 0; k < nivel.getVerticalBoxes(); k++){
-//                        for(int l = 0; l < nivel.getHorizontalBoxes(); l++){
-//                            if( tablero[k][l] == swaps[1] ){
-//                                tablero[k][l].setTipo(aux);
-//                                break;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-    
 }
