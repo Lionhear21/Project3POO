@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  */
 public class MainStage extends Stage 
 {
-    private int score = 0;
     private MenuPrincipal mainWindow;
 
     public MainStage(MenuPrincipal mainWindow) {
@@ -29,13 +28,19 @@ public class MainStage extends Stage
         
         BorderPane mainPane = new BorderPane(); //Panel principal
         
+        MainCanvas Canvas = new MainCanvas(); //Nuestro lienzo en el cual pintaremos todo
+        
+        if(getLevelScore(Canvas) >= 1000){
+            
+        }
+        
         HBox hud = new HBox(20);
         Label labelVidas = new Label("Vidas = 5");
-        labelVidas.setMinHeight(20);
-        Label labelPuntaje = new Label("Puntaje = " + score);
+        Label labelPuntaje = new Label("Puntaje = " + getLevelScore(Canvas));
+        System.out.println(getLevelScore(Canvas));
         hud.getChildren().addAll(labelVidas, labelPuntaje);
         
-        MainCanvas Canvas = new MainCanvas(); //Nuestro lienzo en el cual pintaremos todo
+        
         mainPane.setCenter(Canvas); //Colocamos el lienzo en medio de Panel principal
         mainPane.setTop(hud);
         
@@ -46,5 +51,10 @@ public class MainStage extends Stage
         
         Scene scene = new Scene(mainPane, 800, 600); //Creamos la escena a mostrar,(colocamos el panel principal, ancho en pixeles, largo en pixeles)
         super.setScene(scene); //Mostramos la escena con el panel "principal creado"
+    }
+    
+    public int getLevelScore(MainCanvas Canvas)
+    {
+        return Canvas.getLevelScore();
     }
 }

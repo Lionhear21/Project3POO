@@ -13,13 +13,14 @@ import java.util.Date;
  */
 public class Player {
     private String name;
-    private int score;
     private Date date;
+    private int[] score;
 
-    public Player(String name, int score, Date date) {
+
+    public Player(String name, Date date) {
         this.name = name;
-        this.score = score;
         this.date = date;
+        this.score = new int[10];
     }
 
     public String getName() {
@@ -30,14 +31,6 @@ public class Player {
         this.name = name;
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
     public Date getDate() {
         return date;
     }
@@ -45,4 +38,14 @@ public class Player {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public int getScore(int index) {
+        return score[index];
+    }
+
+    public void setScore(int[] score) {
+        this.score = score;
+    }
+    
+    
 }

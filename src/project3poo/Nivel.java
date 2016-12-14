@@ -21,10 +21,12 @@ public class Nivel
     private Candy[][] tablero;
     private int xInicio;
     private int yInicio;
-
-    public Nivel(int width , int height, int horizontalBoxes, int verticalBoxes) {
+    private int requiredScore;
+    
+    public Nivel(int width , int height, int horizontalBoxes, int verticalBoxes, int requiredScore) {
         this.horizontalBoxes = horizontalBoxes;
         this.verticalBoxes = verticalBoxes;
+        this.requiredScore = requiredScore;
         
         this.tablero = new Candy[this.horizontalBoxes][this.verticalBoxes];
         
@@ -81,6 +83,13 @@ public class Nivel
         System.out.printf("X: " + j + " "+ "Y: " + i);
         System.out.println(this.tablero[i][j].getTipo());
         return this.tablero[i][j];
-        
+    }
+
+    public int getRequiredScore() {
+        return requiredScore;
+    }
+
+    public void setRequiredScore(int requiredScore) {
+        this.requiredScore = requiredScore;
     }
 }

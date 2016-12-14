@@ -18,8 +18,12 @@ import javafx.stage.Stage;
  */
 public class RegistroPuntaje extends Stage
 {
-    public RegistroPuntaje()
+    private Prototype prototipo;
+    
+    public RegistroPuntaje(Prototype prototipo)
     {
+        this.prototipo = prototipo;
+        
         this.initModality(Modality.APPLICATION_MODAL);
         super.setTitle("Registrar Puntaje");
         
@@ -31,11 +35,4 @@ public class RegistroPuntaje extends Stage
         Scene scene = new Scene(root, 400, 400);
         this.setScene(scene);
     }
-    
-//    if( (vidas = 0) || (nivelesSuperados = 10) ) {
-//        if(!this.gameWindow.isShowing()) {
-//            this.gameWindow.setResizable(false);
-//            this.gameWindow.show();
-//        }
-//    }
 }

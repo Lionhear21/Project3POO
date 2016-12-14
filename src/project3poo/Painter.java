@@ -13,9 +13,9 @@ import javafx.scene.canvas.GraphicsContext;
  * @author Elio
  */
 public class Painter{
-    static public void paint( Prototype prototipo, GraphicsContext context, Dimension board, Dimension ventana) { //Metodo principal, se le entrega el juego, el buffer, la dimension del tablero de juego, dimension del la ventana
+    static public void paint( Prototype prototipo, GraphicsContext context, Dimension board, Dimension ventana , int level) { //Metodo principal, se le entrega el juego, el buffer, la dimension del tablero de juego, dimension del la ventana
     
-        Nivel nivel = prototipo.getNivel(0);
+        Nivel nivel = prototipo.getNivel(level);
         Candy[][] tablero = nivel.getTablero();
         if( nivel != null ){
             for(int i = 0; i < nivel.getHorizontalBoxes(); i++){

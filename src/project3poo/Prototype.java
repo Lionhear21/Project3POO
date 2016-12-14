@@ -12,24 +12,30 @@ import java.util.Random;
 
 /**
  *
- * @author chico
+ * @author Elio
  */
-public class Prototype {
-    static private final int ACTUAL_SCORE = 0; //Puntaje actual del juego
-    
+public class Prototype
+{
+    final private RegistroPuntaje registerWindow = new RegistroPuntaje(this);
     private Dimension mundo; //Tamaño del tablero de juego
     private HashMap<Integer,Nivel> levels; //ArrayList con todos los dulces posibles
     private ArrayList<Player> players; //ArrayList con todos los jugadores que han participado
     private boolean initiate; // Estado del juego //true = Iniciado || false = No Iniciado
+    private int levelScore;
+    private int totalScore;
+    private int movimientosRestantes;
     
     //Constructor
     public Prototype(int width, int heigth) {
         this.mundo = new Dimension(width,heigth); //Se le da el tamaño total de la ventana al tablero
         this.levels = new HashMap();
         this.players = new ArrayList<>();
+        this.levelScore = 0;
+        this.totalScore = 0;
+        this.movimientosRestantes = 15;
         
         for(int i = 0; i < 10; i++){
-            Nivel nivel = new Nivel(width,heigth,6,6);
+            Nivel nivel = new Nivel(width,heigth,6,6, ((100*(i+1)) + 500));
             this.levels.put(i, nivel);
         }
         
@@ -80,6 +86,46 @@ public class Prototype {
     public Nivel get(Object key) {
         return levels.get(key);
     }
+
+    public int getLevelScore() {
+        return levelScore;
+    }
+
+    public void setLevelScore(int levelScore) {
+        this.levelScore = levelScore;
+    }
+    
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public int getMovimientosRestantes() {
+        return movimientosRestantes;
+    }
+
+    public void setMovimientosRestantes(int movimientosRestantes) {
+        this.movimientosRestantes = movimientosRestantes;
+    }
+    
+    public void terminarJuego(Nivel nivel){
+        if(!this.registerWindow.isShowing()){
+            this.registerWindow.setResizable(false);
+            this.registerWindow.show();
+        }
+    }
+    
+//    public void mostrar(){
+//        if((this.terminarJuego(nivel.getLevelActual())) == true){
+//            if(!this.gameWindow.isShowing()) {
+//                this.gameWindow.setResizable(false);
+//                this.gameWindow.show();
+//            }
+//        }
+//    }
     
     public void mechanics(Nivel nivel, Candy[] swaps){
         
@@ -244,7 +290,7 @@ public class Prototype {
             }
 
             flag = 0;
-            //"For que revisa si aun eisten Nulls"
+            //"For que revisa si aun existen Nulls"
             for(int i = 0; i < nivel.getVerticalBoxes(); i++){
                 for(int j = 0; j < nivel.getHorizontalBoxes(); j++){
                     if(nivel.getTablero()[i][j].getTipo() == Tipo.NULL){
@@ -255,3 +301,5 @@ public class Prototype {
         }
     }
 }
+
+
